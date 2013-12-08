@@ -1,0 +1,76 @@
+@import "bootstrap"
+@import "bootstrap-responsive"
+
+body
+  padding-top: 50px
+  background: asset-url('images/bg.png') 0 0 repeat-x
+.content
+  background: #fff
+  margin: 10px -20px 20px
+  padding: 20px
+  @include border-radius(5px)
+.table
+  tr.a
+    background: #f8f8f8
+  td.middle
+    vertical-align: middle
+    font-size: 12px
+  .center
+    text-align: center
+.outlink
+  a
+    color: #080
+    padding-right: 18px
+    background: asset-url('images/external.png') 100% 50% no-repeat
+    font-size: 12px
+.apps
+  .description
+    font-size: 12px
+
+h1,h2,h3
+  line-height: 1.5
+h1
+  font-size: 24px
+h2
+  font-size: 18px
+.widget
+  h2
+    font-weight: 500
+ol.apps
+  li
+    padding: 5px 0
+    
+.tagline
+  margin: -10px 0 10px
+.sidebar
+  h3
+    font-size: 14px
+    line-height: 21px
+    font-weight: 500
+  ul.tags
+    margin: 0
+    li
+      list-style: none
+dl.apps    
+  float: left
+  margin: 10px -15px
+  dd
+    float: left
+    text-align: center
+    padding: 15px
+    a.photo
+      height: 72px
+      float: left
+      width: 72px
+    .outlink a
+      color: #666
+    .meta
+      margin: 10px 0
+      span
+        font-size: 12px
+        background: asset-url('images/favourite.png')  100% 0 no-repeat
+        padding-right: 18px
+li.more
+  margin-top: 10px
+  a
+    text-align: right

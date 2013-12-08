@@ -1,0 +1,11 @@
+-@tags = App.tag_counts.sort{|a,b| b.count <=> a.count}
+.widget
+  -if @tags.present?
+    %h3 流行标签
+    %ul.tags
+      -@tags[0,20].each do |t|
+        %li
+          =link_to t.name,tag_url(t.name)
+          %small (#{t.count})
+      %li.more
+        =link_to "&raquo; 更多".html_safe

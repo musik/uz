@@ -1,0 +1,33 @@
+=paginate @apps
+-#-@manage = Rails.env.development?
+%table.table.apps
+  %tr
+    %th 
+    %th 
+    %th.center 粉丝数
+    %th.center 访问量
+    %th.center 创建者
+    %th.center 创立于
+
+  - @apps.each do |app|
+    %tr{class: cycle('a','b')}
+      %td
+        %a.photo{:href=>app_home_url(app)}
+          =image_tag(app.logo,class: 'img-rounded',width: 72)
+      %td
+        = link_to app.name,app_home_url(app),class: "fn"
+        -if @manage
+          %small
+            = link_to 'Edit', edit_app_path(app)
+            = link_to 'Update', upd_app_path(app), :method => :put,remote: true
+            = link_to 'Destroy', app, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        .description
+          #{app.keywords}
+          %br
+          =app.description.truncate(25)
+        .outlink
+          =link_to app.url,app.url,rel:"nofollow",target: "_blank"
+      %td.middle.center= app.fans_count
+      %td.middle.center= app.uv
+      %td.middle.center= app.owner
+      %td.middle.center= app.found_at

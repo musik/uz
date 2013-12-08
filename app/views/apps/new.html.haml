@@ -1,0 +1,12 @@
+%h1 提交U站
+
+= simple_form_for(@app) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :slug
+
+  .form-actions
+    = f.button :submit
+
+= link_to 'Back', apps_path

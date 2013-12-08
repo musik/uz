@@ -1,0 +1,30 @@
+-title @app.name
+%h1=@app.name
+.tagline
+  -@app.tags.each do |t|
+    =link_to t.name,tag_url(t.name),class: "label"
+.row-fluid
+  .span2
+    =image_tag @app.logo,class: "img-rounded",width: 160
+  .span10
+    %strong 创建者:
+    %span=@app.owner
+    %br
+    %b 粉丝数:
+    = @app.fans_count
+    %br
+    %b 访问量:
+    = @app.uv
+    %br
+    %b 创立于:
+    = @app.found_at
+    %p
+      .outlink=link_to @app.url,@app.url,rel:"nofollow",target: "_blank"
+      %hr
+      = @app.description
+
+=render "shared/duoshuo"
+
+-#= link_to 'Edit', edit_app_path(@app)
+-#\|
+-#= link_to 'Back', apps_path

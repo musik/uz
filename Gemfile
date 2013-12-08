@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '4.0.0'
+gem 'mysql2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,11 +16,16 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'unicorn'
+gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
+gem 'libnotify'
 group :development do
+  gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
   gem 'guard-rails'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
@@ -27,4 +33,26 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'capistrano'
+  gem 'capistrano-recipes'
+  #gem 'capistrano-helpers'
+  #gem 'capistrano-unicorn'#,:git=>'git://github.com/sosedoff/capistrano-unicorn.git'
+  #gem 'capistrano-resque'
 end
+
+gem 'anemone'
+gem 'htmlentities'
+
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+gem 'acts-as-taggable-on'
+gem 'breadcrumbs'
+
+gem 'resque'
+gem "resque-async-method"
+#gem "resque-async-method-enhanced", "~> 1.3.2"
+#gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
+gem 'resque-ensure-connected'
+gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'resque-retry'
+gem 'resque-cleaner'

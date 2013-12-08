@@ -1,0 +1,4 @@
+-title "【#{@tag.name}】- #{@tag.name}U站"
+%h1=@tag.name
+=paginate @apps
+= render :partial => 'thumb_list'

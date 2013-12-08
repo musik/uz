@@ -1,0 +1,33 @@
+-title "U站大全"
+%h1 U站大全
+
+.row-fluid
+  -num = 10
+  .span4.widget
+    %h2 流量最高的U站
+    -@apps = App.top.limit(num)
+    -if @apps.present?
+      %ol.apps
+        -@apps.each do |app|
+          %li 
+            =link_to app.name,app_home_url(app)
+            .outlink=link_to app.url,app.url,rel:"nofollow",target: "_blank"
+  .span4.widget
+    %h2 最受欢迎的U站
+    -@apps = App.popular.limit(num)
+    -if @apps.present?
+      %ol.apps
+        -@apps.each do |app|
+          %li 
+            =link_to app.name,app_home_url(app)
+            .outlink=link_to app.url,app.url,rel:"nofollow",target: "_blank"
+  .span4.widget
+    %h2 最新创建的U站
+    -@apps = App.recent.limit(num)
+    -if @apps.present?
+      %ol.apps
+        -@apps.each do |app|
+          %li 
+            =link_to app.name,app_home_url(app)
+            .outlink=link_to app.url,app.url,rel:"nofollow",target: "_blank"
+
