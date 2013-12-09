@@ -1,4 +1,6 @@
 -title "#{@app.name}(淘宝U站)"
+-meta :description,@app.description if @app.description.present?
+-meta :keywords,@app.keywords if @app.keywords.present?
 %h1=@app.name
 .tagline
   -@app.tags.each do |t|

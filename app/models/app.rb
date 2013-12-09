@@ -55,4 +55,16 @@ class App < ActiveRecord::Base
     end
     self
   end
+  def self.tag_counts
+    ActsAsTaggableOn::Tagging.
+      select("tags.name,taggings.tag_id,count(taggings.tag_id) as count").
+      group("taggings.tag_id").having("count > 0").
+      joins("join tags on tags.id = taggings.tag_id")
+  end
+  def self.tag_counts_on str
+    ActsAsTaggableOn::Tag.
+    select("tags.*,taggings.count").
+    joins("JOIN (SELECT taggings.tag_id,count(taggings.tag_id) as count FROM taggings GROUP BY taggings.tag_id HAVING count > 0) as taggings on taggings.tag_id = tags.id")
+    #super str
+  end
 end

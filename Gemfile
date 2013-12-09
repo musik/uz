@@ -33,7 +33,9 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem 'capistrano'
+  gem 'capistrano', '2.15.5'
+  #gem 'capistrano-rails'
+  #gem 'capistrano-nginx', git: 'git@github.com:musik/capistrano-nginx.git'
   gem 'capistrano-recipes'
   #gem 'capistrano-helpers'
   #gem 'capistrano-unicorn'#,:git=>'git://github.com/sosedoff/capistrano-unicorn.git'
