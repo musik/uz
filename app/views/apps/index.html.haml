@@ -1,16 +1,19 @@
--title "U站大全"
-%h1 U站大全
-
+-title "淘宝U站排行榜"
+%h1 淘宝U站排行榜
+-@cols = 10
 .row-fluid
   -num = 10
   .span4.widget
-    %h2 流量最高的U站
+    %h2
+      流量最高的U站
+      %small=link_to "更多",top_apps_url
     -@apps = App.top.limit(num)
     -if @apps.present?
       %ol.apps
         -@apps.each do |app|
           %li 
             =link_to app.name,app_home_url(app)
+            %small #{number_with_delimiter(app.uv)} UV
             .outlink=link_to app.url,app.url,rel:"nofollow",target: "_blank"
   .span4.widget
     %h2 最受欢迎的U站
@@ -20,14 +23,18 @@
         -@apps.each do |app|
           %li 
             =link_to app.name,app_home_url(app)
+            %small #{number_with_delimiter(app.fans_count)} 人喜欢
             .outlink=link_to app.url,app.url,rel:"nofollow",target: "_blank"
   .span4.widget
-    %h2 最新创建的U站
+    %h2
+      最新创建的U站
+      %small=link_to "更多",recent_apps_url
     -@apps = App.recent.limit(num)
     -if @apps.present?
       %ol.apps
         -@apps.each do |app|
           %li 
             =link_to app.name,app_home_url(app)
+            %small=app.found_at
             .outlink=link_to app.url,app.url,rel:"nofollow",target: "_blank"
 

@@ -2,22 +2,34 @@ class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy,:upd]
 
   def index
-
+    breadcrumbs.add :apps
   end
   def recent
     @apps = App.recent.page(params[:page])
+    breadcrumbs.add :apps,apps_url
+    breadcrumbs.add :apps_recent
   end
   def top
     @apps = App.top.page(params[:page])
+    breadcrumbs.add :apps,apps_url
+    breadcrumbs.add :apps_top
+  end
+  def tags
+    @tags = App.tag_counts_on(:tags).page(params[:page]).per(200)
+    breadcrumbs.add :apps_tags
   end
   def tag
     @tag = ActsAsTaggableOn::Tag.where(name: params[:id]).first
-    @apps = App.tagged_with(@tag).page(params[:page])
+    @apps = App.tagged_with(@tag).popular.page(params[:page]).per(35)
+    breadcrumbs.add :apps_tags,tags_url
+    breadcrumbs.add @tag.name
   end
 
   # GET /apps/1
   # GET /apps/1.json
   def show
+    breadcrumbs.add :apps,apps_url
+    breadcrumbs.add @app.name
   end
   def upd
     render text: @app.import_data.save

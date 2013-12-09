@@ -13,6 +13,10 @@
       = render 'layouts/navigation'
     %main{:role => "main"}
       .container
+        -unless is_home?
+          .breadcrumbs
+            你的位置:
+            =breadcrumbs.render format: 'inline'
         .content
           .row
             -if @cols == 1
@@ -26,6 +30,7 @@
               %div{class: "span#{@cols}"}
                 = render 'layouts/messages'
                 = yield
-              %div{class: "span#{10 - @cols}"}
-                = render :partial => 'layouts/sidebar'
+              -if @cols < 10
+                %div{class: "span#{10 - @cols}"}
+                  = render :partial => 'layouts/sidebar'
           %footer

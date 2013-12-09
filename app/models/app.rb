@@ -3,6 +3,7 @@ class App < ActiveRecord::Base
   before_validation :parse_data
   #validates_presence_of :slug
   validates :slug, format: {with: /\A[a-z0-9\-]+\Z/,message: "仅由小写字母与数字组成"}
+  default_scope ->{ where.not(name: nil)}
   scope :recent, ->{ order('found_at desc')}
   scope :top, ->{ order('uv desc')}
   scope :popular, ->{ order('fans_count desc')}

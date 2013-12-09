@@ -5,11 +5,11 @@
     淘宝优站是以小站集合的形式，成为淘宝、天猫卖家根据兴趣图谱和标签进行站内营销的重要通路，将资讯和分享导购类信息汇聚集成一个社会化的网络导购平台，卖家之间可以根据消费者的购物和浏览习惯进行联合营销。免费的建站平台，由站长提供丰富的资讯和专业的导购内容，最终汇聚集成一个社会化的网络导购平台。
 %section
   %h2 最新提交的U站
-  -@apps = App.recent.limit(30)
+  -@apps = App.recent.limit(28)
   = render :partial => 'apps/thumb_list'
 %section
   %h2 最受欢迎的U站
-  -@apps = App.popular.limit(30)
+  -@apps = App.popular.limit(28)
   = render :partial => 'apps/thumb_list'
 
       

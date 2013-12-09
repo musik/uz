@@ -1,8 +1,9 @@
-=paginate @apps
+-@cols = 8
+=paginate @apps,:total_pages=>(@apps.total_pages > 40 ? 40 : @apps.total_pages )
 -#-@manage = Rails.env.development?
 %table.table.apps
   %tr
-    %th 
+    %th 共#{@apps.total_count}个U站
     %th 
     %th.center 粉丝数
     %th.center 访问量
@@ -27,7 +28,7 @@
           =app.description.truncate(25)
         .outlink
           =link_to app.url,app.url,rel:"nofollow",target: "_blank"
-      %td.middle.center= app.fans_count
-      %td.middle.center= app.uv
+      %td.middle.center= number_with_delimiter(app.fans_count)
+      %td.middle.center= number_with_delimiter(app.uv)
       %td.middle.center= app.owner
       %td.middle.center= app.found_at

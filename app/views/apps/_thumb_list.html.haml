@@ -3,8 +3,8 @@
     %dd
       =link_to image_tag(app.logo,class: 'img-rounded',width: 72),app_home_url(app)
       .meta
-        =link_to app.name,app_home_url(app),class: "fn",title: "点此查看详情"
+        =link_to app.name.truncate(6),app_home_url(app),class: "fn",title: "#{app.name} - 点此查看详情"
         %br
         -#%span{title: "#{app.fans_count}人喜欢"} #{app.fans_count}
-        .outlink=link_to app.fans_count,app.url,title: "#{app.fans_count}人喜欢,点此访问U站",class: "external",rel: "nofollow",target: "_blank"
+        .outlink=link_to number_with_delimiter(app.fans_count),app.url,title: "#{number_with_delimiter(app.fans_count)}人喜欢,点此访问U站",class: "external",rel: "nofollow",target: "_blank"
 .clearfix

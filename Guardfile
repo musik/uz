@@ -10,7 +10,7 @@ end
 guard 'rails',server: :thin do
   watch('Gemfile.lock')
   watch('Guardfile')
-  watch(%r{^(config/initializers/|lib)/.*})
+  watch(%r{^(config/initializers|lib/extras)/.*})
 end
 
 guard 'livereload' do
