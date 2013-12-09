@@ -321,6 +321,7 @@ DEPENDENCIES
   rb-fchange
   rb-fsevent
   rb-inotify
+  redis
   resque
   resque-async-method
   resque-cleaner

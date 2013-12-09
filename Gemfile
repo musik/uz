@@ -50,6 +50,7 @@ gem 'bootstrap-kaminari-views'
 gem 'acts-as-taggable-on'
 gem 'breadcrumbs'
 
+gem 'redis'
 gem 'resque'
 gem "resque-async-method"
 #gem "resque-async-method-enhanced", "~> 1.3.2"
